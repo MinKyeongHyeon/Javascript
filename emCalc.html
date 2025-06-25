@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>essyEmCalculator</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-image: url(https://t3.ftcdn.net/jpg/03/20/86/12/360_F_320861294_RVQAMjfMpAORnsj0fvJJ6iT8VRkrX5Fp.jpg);
+        background-size: cover;
+      }
+      .calculator {
+        width: 30vw;
+        height: 400px;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid white;
+        background-color: rgba(255, 255, 255, 0.135);
+        backdrop-filter: blur(5px);
+        color: white;
+        border-radius: 5%;
+      }
+      #result {
+        color: lightcyan;
+        font-size: x-large;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: 10px 30px;
+        border: 1px solid white;
+        border-radius: 40px;
+        box-sizing: border-box;
+        background-color: #22212118;
+        color: white;
+      }
+      button {
+        width: 100%;
+        padding: 10px 30px;
+        border-radius: 40px;
+        border: none;
+        cursor: pointer;
+        background-color: lightcoral;
+        color: white;
+        font-weight: bold;
+      }
+      button:hover {
+        background-color: rgb(135, 67, 67);
+        color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <h1>em 계산기</h1>
+      <label for="pxOrigin">기본 폰트(px)</label>
+      <input type="number" id="pxOrigin" />
+      <label for="pxValue">원하는 px 값</label>
+      <input type="number" id="pxValue" />
+      <button type="button" onclick="calc()">em 값 계산</button>
+      <p id="result">얼마일까?</p>
+    </div>
+
+    <script>
+      function calc() {
+        pxOrigin = +document.getElementById('pxOrigin').value;
+        pxValue = +document.getElementById('pxValue').value;
+        pxCalc = pxValue / pxOrigin;
+        document.getElementById('result').innerHTML = `${pxCalc}em 입니다 ^_^`;
+      }
+    </script>
+  </body>
+</html>
