@@ -61,9 +61,9 @@ sum2(10, 20);
 function sum3(a, b) {
   let a = Number(a);
   let b = Number(b);
-  res1 = a * b;
-  res2 = a / b;
-  res3 = a + b;
+  let res1 = a * b;
+  let res2 = a / b;
+  let res3 = a + b;
   console.log(`${a} + ${b} = ${res3}`);
   console.log(`${a} * ${b} = ${res1}`);
   console.log(`${a} / ${b} = ${res2}`);
