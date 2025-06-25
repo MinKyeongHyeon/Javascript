@@ -59,6 +59,10 @@
         background-color: rgb(135, 67, 67);
         color: #eee;
       }
+      p > span {
+        font-size: 2em;
+        color: yellow;
+      }
     </style>
   </head>
   <body>
@@ -77,7 +81,9 @@
         pxOrigin = +document.getElementById('pxOrigin').value;
         pxValue = +document.getElementById('pxValue').value;
         pxCalc = pxValue / pxOrigin;
-        document.getElementById('result').innerHTML = `${pxCalc}em 입니다 ^_^`;
+        document.getElementById(
+          'result'
+        ).innerHTML = `${pxValue}px = <span>${pxCalc}</span>em 입니다 ^_^`;
       }
     </script>
   </body>
