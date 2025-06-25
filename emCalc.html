@@ -80,7 +80,7 @@
       function calc() {
         pxOrigin = +document.getElementById('pxOrigin').value;
         pxValue = +document.getElementById('pxValue').value;
-        pxCalc = pxValue / pxOrigin;
+        pxCalc = (pxValue / pxOrigin).toFixed(2);
         document.getElementById(
           'result'
         ).innerHTML = `${pxValue}px = <span>${pxCalc}</span>em 입니다 ^_^`;
