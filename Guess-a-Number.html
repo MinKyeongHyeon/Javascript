@@ -51,13 +51,18 @@
       // console.log(aiNumber);
 
       document.getElementById('btn').addEventListener('click', function (e) {
-        const userNumber = Number(document.getElementById('num').value);
+        const userInput = document.getElementById('num').value;
         const aiNumber = Math.ceil(Math.random() * 10);
         const res = document.getElementById('result');
         // console.log(userNumber);입력창 비어있으면 0
-        if (userNumber === 0) {
+        if (userInput === '') {
           res.textContent = `입력칸이 비었습니다.🤔`;
-        } else if (userNumber > 10 || userNumber < 0) {
+          return; // 여기서 함수 종료.
+        }
+        const userNumber = Number(userInput);
+        if (isNaN(userNumber)) {
+          res.textContent = '숫자만 입력하세요!😡';
+        } else if (userNumber > 10 || userNumber < 1) {
           res.textContent = '1~10까지의 숫자만 기입하세요.';
         } else if (userNumber === aiNumber) {
           res.textContent = `👨🏻‍🦲:${userNumber} 정답입니다!! 🥳🎉 🤖:${aiNumber}`;
