@@ -60,3 +60,15 @@ if (inputPw === userPw) {
 } else {
   console.log('정지!정지!정지! 손 들고 뒤로 돌아!');
 }
+
+//[if7] 세 개의 수 중 가장 큰 수 찾기
+const number = [100, 80, 55, 40, 12, 1];
+console.log(Math.max(...number));
+
+//[if8] 주어진 숫자가 3의 배수인지 확인하기
+const num3 = 3453;
+if (num3 % 3 === 0) {
+  console.log('3의 배수구먼유~');
+} else {
+  console.log('3의 배수가 아니구먼유~');
+}
