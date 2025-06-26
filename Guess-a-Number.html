@@ -54,23 +54,26 @@
         const userInput = document.getElementById('num').value;
         const aiNumber = Math.ceil(Math.random() * 10);
         const res = document.getElementById('result');
+        let message = '';
         // console.log(userNumber);입력창 비어있으면 0
         if (userInput === '') {
-          res.textContent = `입력칸이 비었습니다.🤔`;
+          message = `입력칸이 비었습니다.🤔`;
+          res.textContent = message;
           return; // 여기서 함수 종료.
         }
         const userNumber = Number(userInput);
         if (isNaN(userNumber)) {
-          res.textContent = '숫자만 입력하세요!😡';
+          message = '숫자만 입력하세요!😡';
         } else if (userNumber > 10 || userNumber < 1) {
-          res.textContent = '1~10까지의 숫자만 기입하세요.';
+          message = '1~10까지의 숫자만 기입하세요.';
         } else if (userNumber === aiNumber) {
-          res.textContent = `👨🏻‍🦲:${userNumber} 정답입니다!! 🥳🎉 🤖:${aiNumber}`;
+          message = `👨🏻‍🦲:${userNumber} 정답입니다!! 🥳🎉 🤖:${aiNumber}`;
         } else if (userNumber > aiNumber) {
-          res.textContent = `👨🏻‍🦲:${userNumber} > 🤖:${aiNumber} 당신의 수가 너무 큽니다!`;
+          message = `👨🏻‍🦲:${userNumber} > 🤖:${aiNumber} 당신의 수가 너무 큽니다!`;
         } else {
-          res.textContent = `👨🏻‍🦲:${userNumber} < 🤖:${aiNumber} 당신의 수가 너무 작습니다!`;
+          message = `👨🏻‍🦲:${userNumber} < 🤖:${aiNumber} 당신의 수가 너무 작습니다!`;
         }
+        res.textContent = message;
       });
     </script>
   </body>
