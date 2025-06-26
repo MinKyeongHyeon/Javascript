@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess-a-Number</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: gray;
+      }
+      .box {
+        width: 30vw;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        border: 1px solid white;
+        background-color: rgba(255, 255, 255, 0.135);
+        backdrop-filter: blur(5px);
+        color: white;
+        border-radius: 10px;
+      }
+      .box > input {
+        padding: 10px;
+        background-color: beige;
+        border: 1px solid white;
+        border-radius: 30px;
+      }
+      .box > button {
+        padding: 10px;
+        background-color: lightcoral;
+        color: white;
+        border: 1px solid white;
+        border-radius: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>🤔Guess a Number(1~10)🎯</h1>
+      <input type="text" id="num" placeholder="1~10을 입력하세요." />
+      <button type="button" id="btn">확인</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      // console.log(aiNumber);
+
+      document.getElementById('btn').addEventListener('click', function (e) {
+        const userNumber = Number(document.getElementById('num').value);
+        const aiNumber = Math.ceil(Math.random() * 10);
+        const res = document.getElementById('result');
+        // console.log(userNumber);입력창 비어있으면 0
+        if (userNumber === 0) {
+          res.textContent = `입력칸이 비었습니다.🤔`;
+        } else if (userNumber > 10 || userNumber < 0) {
+          res.textContent = '1~10까지의 숫자만 기입하세요.';
+        } else if (userNumber === aiNumber) {
+          res.textContent = `👨🏻‍🦲:${userNumber} 정답입니다!! 🥳🎉 🤖:${aiNumber}`;
+        } else if (userNumber > aiNumber) {
+          res.textContent = `👨🏻‍🦲:${userNumber} > 🤖:${aiNumber} 당신의 수가 너무 큽니다!`;
+        } else {
+          res.textContent = `👨🏻‍🦲:${userNumber} < 🤖:${aiNumber} 당신의 수가 너무 작습니다!`;
+        }
+      });
+    </script>
+  </body>
+</html>

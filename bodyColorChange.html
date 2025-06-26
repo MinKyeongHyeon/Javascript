@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bodyColorChange</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: red;
+    }
+    .box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      width: 50vw;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.093);
+      backdrop-filter: blur(5px);
+      border: 1px solid white;
+      border-radius: 30px;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <h1>🪄색상을 선택해줘~🪄</h1>
+      <select id="color">
+        <option value="red">red</option>
+        <option value="coral">coral</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="lightblue">lightblue</option>
+      </select>
+    </div>
+    <script>
+      document.getElementById('color').addEventListener('change', function (e) {
+        document.body.style.backgroundColor = e.target.value;
+      });
+    </script>
+  </body>
+</html>
