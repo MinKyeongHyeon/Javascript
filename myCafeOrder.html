@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myCafeOrder</title>
+    <style>
+      body{
+        position: relative;
+        margin : 0;
+        padding: 0;
+        background-color: #eee;
+        height: 100vh;
+      }
+      form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        gap: 5px;
+        width: 30vw;
+        height: 40vh;
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+      }
+      select{
+        width: 100%;
+      }
+      h2{
+        text-align: center;
+        font-weight: bold;
+        font-size: x-large;
+      }
+      p{
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+      }
+      button{
+        border: none;
+        border-radius: 3px;
+        background-color:chocolate;
+        color: white;
+        cursor: pointer;
+      }
+      button:active{
+        background-color: brown;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form id="form">
+      
+        <h2>My Cafe 주문 계산기</h2>
+
+        <label for="drink">음료 선택</label>
+        <select id="drink" required>
+          <option value="" disabled selected hidden>--음료를 선택하세요--</option>
+          <option value="americano">아메리카노 (₩2,500)</option>
+          <option value="latte">카페라테 (₩3,000)</option>
+          <option value="mocha">카페모카 (₩3,500)</option>
+          <option value="blackTea">홍차(₩2,000)</option>
+          <option value="orangeJuice">오렌지주스(₩2,800)</option>
+        </select>
+
+        <label for="size">사이즈 선택</label>
+        <select id="size" required>
+          <option value="" disabled selected hidden>--사이즈를 선택하세요--</option>
+          <option value="small">Small(기본)</option>
+          <option value="medium">Medium(₩1,000)</option>
+          <option value="large">Large(₩2,000)</option>
+        </select>
+
+        <label for="amount" >수량</label>
+        <input id="amount" type="number" min="1" required/>
+
+        <button id="total" type="submit">계산하기</button>
+        
+        <p id="result"></p>
+    </form>
+      <script>
+        const drinkMenu = {
+          americano: 2500,
+          latte: 3000,
+          mocha: 3500,
+          blackTea: 2000,
+          orangeJuice: 2800,
+        };
+        const drinkSize = {
+          small: 0,
+          medium: 1000,
+          large: 2000,
+        };
+        // 총 금액 계산하기
+
+        const totalCost = document.getElementById('form');
+        totalCost.addEventListener('submit',e => {e.preventDefault(); //input required로 경고창 사라지는거 막으려고 넣어놓음~
+          // 각각 가져올 값 설정 ~
+          const drinkSel = document.getElementById('drink').value;
+          const sizeSel = document.getElementById('size').value;
+          const amount = document.getElementById('amount').value;
+          const total = (drinkMenu[drinkSel] + drinkSize[sizeSel]) * Number(amount);
+
+          document.getElementById('result').textContent = `총 금액 ₩${total} (${amount}잔, ${sizeSel})`;
+        })
+
+        
+      </script>
+    </div>
+  </body>
+</html>
