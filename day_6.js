@@ -128,3 +128,4 @@ const isShallow = (a, b) => {
   return Object.keys(a).every(c => a[c] === b[c]);
 };
 console.log(isShallow(a, b));
+// 정답에서는 길이도 비교하는데 왜인지 모르겠음
