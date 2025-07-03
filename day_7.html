@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bgRed {
+        background-color: rgb(164, 34, 34);
+        color: white;
+      }
+      .wow {
+        text-align: center;
+        font-size: 30rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM 조작</h1>
+    <p class="wow">
+      나는 매우 졸리다. 왜 항상 졸릴까? 잠은 죽어서 자는거라더니만, 안자니까 더
+      죽겠다.
+    </p>
+    <button type="button" id="click">추가</button>
+    <button type="button" id="click2">제거</button>
+
+    <script>
+      /* 1) 클래스 제어 */
+      /* classList.add() */
+      const p = document.querySelector('p');
+      p.classList.add('bgRed');
+      // 선택한 dom 요소에 클래스를 붙여줌. (순서는 무조건 뒤에 붙는듯?)
+
+      document
+        .getElementById('click')
+        .addEventListener('click', () => p.classList.add('bgRed'));
+
+      /* classList.remove()*/
+      p.classList.remove('wow');
+      // 선택한 dom 요소에 클래스를 제거함.
+      document
+        .getElementById('click2')
+        .addEventListener('click', () => p.classList.remove('bgRed'));
+
+      // classList.contain()
+      console.log(p.classList.contains('bgRed'));
+      // 선택한 dom 요소에 해당 클래스가 있는지 boolean으로 반환해줌~
+
+      // classList.toggle()
+      p.classList.toggle('bgRed');
+      // 선택한 dom 요소에 해당 클래스가 있으면 지우고, 없으면 추가함~
+
+      // 2) 요소의 크기/위치
+      // getBoundingClientRect()
+      const rect = p.getBoundingClientRect();
+      console.log(rect);
+      // 선택한 dom의 크기랑 위치를 반환해줌...
+      // offsetLeft
+      console.log(p.offsetLeft);
+      // 선택한 dom의 왼쪽 위치를 반환해줌~
+      // offsetTop
+      console.log(p.offsetTop);
+      // 선택한 dom의 위쪽 위치를 반환해줌~
+
+      // 3) 속성 제어
+      // getAttribute
+      console.log(p.getAttribute('class'));
+      // 선택한 dom의 속성을 가져옴 (class, id, src, href 등),빈 값은 허용하지 않는듯 ~
+
+      // setAttribute
+      p.setAttribute('id', 'hello');
+      // 선택한 dom에 속성을 추가 (속성이름, 속성값)~
+
+      // 4) dataset 으로 접근하기
+      p.dataset.value = 'world';
+      // 자바스크립트에서 사용하기 위한 속성을 생성함~ , data-로 시작하고 HTML에서는 보이지 않음~
+      console.log(p.dataset.value);
+    </script>
+  </body>
+</html>
